@@ -1,0 +1,1 @@
+/home/beka/.config/omarchy/current/theme/neovim.lua
