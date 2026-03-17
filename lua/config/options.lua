@@ -3,3 +3,4 @@
 -- Add any additional options here
 vim.opt.relativenumber = false
 vim.opt.autochdir = true
+vim.g.lazyvim_python_lsp = "basedpyright"

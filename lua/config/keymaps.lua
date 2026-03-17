@@ -20,5 +20,10 @@ vim.keymap.set("n", "<leader>r", function()
 end, { desc = "Run current Python file (float)" })
 
 vim.keymap.set("n", "<leader>m", function()
+    vim.cmd("silent! bufdo bwipeout")
     require("snacks").dashboard.open()
 end, { desc = "Open LazyVim Dashboard" })
+
+vim.keymap.set("n", "<F2>", function()
+    return ":IncRename " .. vim.fn.expand("<cword>")
+end, { expr = true, desc = "LSP Rename (F2)" })
