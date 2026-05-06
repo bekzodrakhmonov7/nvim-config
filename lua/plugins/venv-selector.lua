@@ -16,6 +16,12 @@ return {
                 set_environment_variables = true, -- export PATH + VIRTUAL_ENV/CONDA_PREFIX
                 require_lsp_activation = false, -- don't wait for LSP to start
             },
+            search = {
+                -- Recursively search for executable 'python' or 'python3' files in .pyenv
+                all_pyenvs = {
+                    command = "fd '^python3?$' /home/beka/.local/share/mise/installs/python --type executable --full-path --color never",
+                },
+            },
             on_venv_activate_callback = function(_venv)
                 -- restart all active LSPs for current workspace
                 vim.cmd("LspRestart")

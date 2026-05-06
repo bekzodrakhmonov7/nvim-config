@@ -8,7 +8,7 @@ return {
                         basedpyright = {
                             analysis = {
                                 -- Choose your strictness: "off", "basic", "standard", "recommended", "all"
-                                typeCheckingMode = "recommended",
+                                typeCheckingMode = "basic",
                             },
                         },
                     },
