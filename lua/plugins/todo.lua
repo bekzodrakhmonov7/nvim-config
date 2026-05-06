@@ -12,12 +12,15 @@ return {
                 end
 
                 local cwd = vim.fn.getcwd()
-                local safe_filename = cwd:gsub("[\\/:]", "_") .. ".txt"
+                local git_root = vim.fn.systemlist({ "git", "-C", cwd, "rev-parse", "--show-toplevel" })[1]
+                local project_root = vim.v.shell_error == 0 and git_root or cwd
+                local safe_filename = project_root:gsub("[\\/:]", "_") .. ".txt"
                 local project_todo_path = todo_dir .. "/" .. safe_filename
 
                 -- 2. Update the plugin with the new path
                 require("todo").setup({
                     opts = {
+                        file = project_todo_path,
                         file_path = project_todo_path,
                     },
                 })
